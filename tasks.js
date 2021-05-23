@@ -1,7 +1,5 @@
 // TASK 1
 
-const button = document.querySelector(`.button`);
-
 button.addEventListener('click', () => {
     Promise.resolve().then(() => console.log('Microtask 1'));
     console.log('Listener 1');
@@ -63,19 +61,17 @@ button.addEventListener('click', () => {
 
 // TASK 2
 
-const button2 = document.querySelector(`.button-2`);
-
-button2.addEventListener('click', () => {
+button.addEventListener('click', () => {
     Promise.resolve().then(() => console.log('Microtask 1'));
     console.log('Listener 1');
 });
 
-button2.addEventListener('click', () => {
+button.addEventListener('click', () => {
     Promise.resolve().then(() => console.log('Microtask 2'));
     console.log('Listener 2');
 });
 
-button2.click();
+button.click();
 
 /*
     Разница в том, что метод click() попадает в стек и поочерёдно выполняет "поверх" себя 2 анонимные функции - по одной с каждого обработчика, не давая стеку очиститься, пока не отработают обе.
